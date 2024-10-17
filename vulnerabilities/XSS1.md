@@ -15,12 +15,18 @@ Image:
 <img width="912" alt="hospital_vul1_pic2" src="https://github.com/user-attachments/assets/84a9d7e1-ab68-4056-801c-599516b29b69">
 
 
-Proof of Concept: To reproduce this attack, an attacker can inject a script into the Patient Name field, the Patient Address field, or the Medical History field while adding a patient in the doctor/add-patient.php file or while editing a patient in the doctor/edit-patient.php file (as shown in the two figures above) under the Patients tab of the application. The payload '<script>alert(1)</script>' was successfully accepted, leading to an alert being triggered for the user when the patients are being viewed in multiple files such as doctor/manage-patient.php or admin/manage-patient.php or admin/view-patient.php
+Proof of Concept: To reproduce this attack, an attacker can inject a script into the Patient Name field, the Patient Address field, or the Medical History field while adding a patient in the doctor/add-patient.php file or while editing a patient in the doctor/edit-patient.php file (as shown in the two figures above) under the Patients tab of the application. The payload '<script>alert(1)</script>' was successfully accepted, leading to an alert being triggered for the user when the patients are being viewed in multiple files such as doctor/manage-patient.php or admin/manage-patient.php or doctor/view-patient.php
 
 <img width="910" alt="hospital_vul1_pic3" src="https://github.com/user-attachments/assets/7b78aaa1-3bb1-42a8-a24b-41e6671996f0">
 
+The above image shows the alert being triggered due to malicious payload given as the patient name under a doctor viewing the list of patients
+
 <img width="913" alt="hospital_vul1_pic4" src="https://github.com/user-attachments/assets/710c801d-9b31-4af3-b09d-d464ac00361a">
 
+The above image shows the alert being triggered due to malicious payload given as the patient name under an admin viewing the list of patients 
+
 <img width="911" alt="hospital_vul1_pic5" src="https://github.com/user-attachments/assets/d634058e-d860-4e16-aa2e-df6ffe6c6071">
+
+The above image shows the alert being triggered due to malicious payload given as the patient address and medical history under a doctor viewing the list of patients 
 
 Remediation: It is important to update the PHPGurukul Hospital Management System by properly sanitizing code variables and including restrictions for special characters so that malicious input such as the one shown in the example cannot be injected.
